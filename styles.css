@@ -520,7 +520,7 @@ body {
     display: grid;
     height: 6vw;
     overflow: hidden;
-    background-color: hsla(14, 72%, 70%, 0.3);
+    background-color: hsla(14, 72%, 70%, 0);
     transform: translateY(2.8vw);
 }
 

@@ -252,10 +252,11 @@ mm.add(
           ease: isDesktop ? "none" : "superEase",
           scrollTrigger: {
             trigger: ".about_section",
-            start: isDesktop ? "top -40%" : "top -20%",
+            start: isDesktop ? "top -40%" : "top 10%",
             end: "bottom bottom",
             scrub: isDesktop ? 5 : false,
             toggleActions: isDesktop ? undefined : "play none play reverse",
+            markers: true,
           },
         });
 
