@@ -280,7 +280,7 @@ mm.add(
           start: "top top",
           end: "bottom bottom",
           scrub: 5,
-          
+
         },
       });
     }
@@ -866,7 +866,7 @@ mm.add(
     jQuery(document).ready(function ($) {
       const input_email = $(".input_email");
       const email_button = $(".button");
-      const baseVW = isDesktop ? 15 : 43.9;
+      const baseVW = isDesktop ? 15 : 80;
       const perCharVW = 0.7;
       const maxVW = isDesktop ? 23 : 80;
       const thresholdChars = 16;
@@ -919,8 +919,8 @@ mm.add(
 
         // Анимации при валидном email
         subscribe.css({
-          filter: "blur(0vw)",
-          transform: "translateY(10vw)",
+          filter: "blur(2vw)",
+          transform: "translateY(15vw)",
         });
 
         subscribed.css({
@@ -986,4 +986,3 @@ mm.add(
 
 // // после загрузки страницы или когда текст вставляется
 // textarea.scrollTop = parseFloat(getComputedStyle(textarea).fontSize) * 2;
-

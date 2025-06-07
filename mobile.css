@@ -106,7 +106,7 @@
         background-color: rgba(233, 253, 175, 0);
         width: 100vw;
         height: 170vw;
-      
+
     }
 
     .about_wrapper {
@@ -359,7 +359,7 @@
     }
 
     .contact_form_wrapper {
-        width: 80vw;
+        width: 81vw;
         transform: translateY(0vw);
         justify-self: center;
         background-color: rgba(0, 255, 255, 0);
@@ -376,7 +376,7 @@
 
     .send_massage {
         font-size: 4.56vw;
-        justify-self: center;
+        justify-self: left;
         color: #006d77a0;
         transform: translateY(0vw);
     }
@@ -389,7 +389,7 @@
         box-sizing: border-box;
         width: 80vw;
         height: 28vw;
-        font-size:4.5vw;
+        font-size:6vw;
         font-family: 'Entropia', sans-serif;
         color: #006d77a0;
         text-align: left;
@@ -415,14 +415,14 @@
 
     .subscribe {
         font-size: 4.56vw;
-        justify-self: center;
+        justify-self: left;
         color: #006d77a0;
     }
 
     .correct_email{
     display: none;
     font-size: 4.56vw;
-    justify-self: center;
+    justify-self: left;
     color: #e97a7a;
     filter: blur(0.3vw);
     transform: translateY(-5vw);
@@ -444,7 +444,7 @@
         place-content: center;
         width: auto;
         height: 10vw;
-        border-radius: 8vw;
+        border-radius: 2vw;
         border: #006d7734 solid 0.2vw;
         background-color: #83c5bf5a;
         justify-self: center;
@@ -453,7 +453,7 @@
     }
 
     .contact_input input {
-        width: 43.9vw;
+        width: 80vw;
         height: 10vw;
         font-family: 'Entropia', sans-serif;
         color: #006d77a0;
@@ -503,19 +503,19 @@
         align-self: center;
         transform: translate(0vw);
         transition: filter 0.1s cubic-bezier(.72, -0.02, 0, .99),
-            transform 0.3s cubic-bezier(.72, -0.02, 0, .99);
+            transform 0.2s cubic-bezier(.72, -0.02, 0, .99);
     }
 
     .subscribed_text_button {
         position: absolute;
-        filter: blur(0.3vw);
+        filter: blur(2vw);
         transform: translateY(-10vw);
         transition: filter 0.1s cubic-bezier(.72, -0.02, 0, .99),
             transform 0.3s cubic-bezier(.72, -0.02, 0, .99);
     }
 
     .button:hover {
-        background-color: #73aca7;
+        background-color: #8ad3cd;
         transition: all 0.5s ease-in-out;
     }
 
