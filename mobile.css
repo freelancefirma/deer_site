@@ -1,0 +1,523 @@
+@media (max-width: 768px) {
+
+    /* .............................................................................. */
+    .decor_section {
+        position: absolute;
+        display: grid;
+        width: 100vw;
+        height: 530vw;
+        background-color: #00ffff00;
+        overflow: hidden;
+    }
+
+    .decor_flow_0 {
+        position: absolute;
+        width: 20vw;
+        transform: translateX(-7vw) translateY(90vw);
+    }
+
+    .decor_flow_1 {
+        position: absolute;
+        width: 30vw;
+        transform: translateX(-11vw) translateY(195vw);
+    }
+
+    .decor_flow_2 {
+        position: absolute;
+        width: 36vw;
+        transform: translateX(13.2vw) translateY(180vw);
+        justify-self: end;
+    }
+
+    .decor_flow_3 {
+        position: absolute;
+        width: 38vw;
+        transform: translateX(-16.5vw) translateY(450vw);
+    }
+
+    .decor_flow_4 {
+        position: absolute;
+        width: 30vw;
+        transform: translateX(12.5vw) translateY(435vw);
+        justify-self: end;
+    }
+
+
+    .hero_section {
+        display: grid;
+        opacity: 1;
+        width: 100vw;
+        height: 105vw;
+        background-color: rgba(127, 255, 182, 0);
+        transition: opacity 1.5s ease;
+    }
+
+    .hero_landscape {
+        display: none;
+        position: absolute;
+        width: 100vw;
+    }
+
+    .hero_landscape_mobile {
+        display: block;
+        position: absolute;
+        width: 100vw
+    }
+
+    .hero_text_wrapper {
+        display: grid;
+        height: 35vw;
+        align-self: center;
+        margin-bottom: 20vw;
+        background-color: #c1c58300;
+        transform: translateY(1vw);
+    }
+
+    .hero_horns {
+        width: 25vw;
+        justify-self: center;
+        background-color: #ff3c0000;
+        transform: translateY(-7vw);
+    }
+
+    .brand_name {
+        font-size: 15vw;
+        justify-self: center;
+        align-self: center;
+        color: #E9937A;
+        transform: translateY(1vw);
+    }
+
+    .slogan {
+        font-size: 6.5vw;
+        justify-self: center;
+    }
+
+    /* ........................................................................... */
+    .about_section {
+        display: grid;
+        background-color: rgba(233, 253, 175, 0.3);
+        width: 100vw;
+        height: 160vw;
+      
+    }
+
+    .about_wrapper {
+        display: grid;
+        background-color: rgba(0, 255, 255, 0);
+        width: 100vw;
+        height: 110vw;
+    }
+
+    .about_logo_container {
+        display: grid;
+        justify-self: center;
+        justify-content: center;
+        width: 20vw;
+        height: 30vw;
+        background-color: rgba(1, 247, 255, 0);
+        margin-top: 4vw;
+    }
+
+    .deer_logo {
+        width: 45vw;
+        justify-self: center;
+    }
+
+    .about_me_wrapper {
+        display: grid;
+        width: 20vw;
+        height: 8vw;
+        justify-self: center;
+        background-color: hsla(0, 25%, 65%, 0);
+        overflow: hidden;
+        mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+        -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+        mask-size: cover;
+        mask-repeat: no-repeat;
+    }
+
+    .about_me {
+        font-size: 6.5vw;
+        justify-self: center;
+    }
+
+    .about_frame_container {
+        display: grid;
+        position: absolute;
+        width: 70vw;
+        height: 60vw;
+        margin-top: 38vw;
+        justify-self: center;
+        align-self: center;
+        background-color: hsla(187, 91%, 61%, 0);
+        overflow: hidden;
+        mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+        -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+        mask-size: cover;
+        mask-repeat: no-repeat;
+    }
+
+    .about_description {
+        position: absolute;
+        width: 59.2vw;
+        font-size: 5.6vw;
+        text-align: center;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .flychar {
+        display: inline-block;
+        white-space: pre;
+    }
+
+    .about_branch_l {
+        position: absolute;
+        height: 12vw;
+        /* margin-top: 9vw; */
+        align-self: end;
+        background-color: #83c5c000;
+    }
+
+    .about_branch_b {
+        position: absolute;
+        height: 2.5vw;
+        /* justify-self: center; */
+        align-self: end;
+        background-color: #83c5c000;
+    }
+
+    .about_branch_t {
+        position: absolute;
+        height: 2.5vw;
+        background-color: #83c5c000;
+        justify-self: end;
+    }
+
+    .about_branch_r {
+        position: absolute;
+        height: 12vw;
+        background-color: #83c5c000;
+        justify-self: end;
+    }
+
+    .about_deer {
+        position: absolute;
+        width: 60vw;
+        margin-top: 109vw;
+        justify-self: center;
+        transform: translateY(0vw) scale(1.2);
+        opacity: 1;
+    }
+
+
+    /* .............................................................................. */
+    .projects_section {
+        display: grid;
+        background-color: rgba(0, 255, 255, 0);
+        width: 100vw;
+        height: 170vw;
+    }
+
+    .projects_wrapper {
+        display: grid;
+        background-color: rgba(0, 255, 255, 0);
+        width: 100vw;
+        height: 60vw;
+    }
+
+    .projects_logo_container {
+        display: grid;
+        width: 100vw;
+        height: 22vw;
+    }
+
+    .projects_logo {
+        width: 19.4vw;
+        justify-self: center;
+    }
+
+    .projects_title_wrapper {
+        display: grid;
+        height: 7.5vw;
+        background-color: #bc8f8f00;
+        overflow: hidden;
+    }
+
+    .projects_title {
+        font-size: 6.5vw;
+        justify-self: center;
+    }
+
+    .grid {
+        width: 90vw;
+        /* общая ширина */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 колонки */
+        grid-auto-rows: 20vw;
+        gap: 2vw;
+        /* промежуток */
+    }
+
+    .item {
+        grid-row: auto !important;
+        grid-column: auto !important;
+        width: 100%;
+        /* чтоб заняли всю ширину ячейки */
+        height: auto;
+    }
+
+    .item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .projects_landscape {
+        width: 100vw;
+        height: 70vw;
+        justify-self: center;
+        margin-top: 32vw;
+        z-index: -1;
+        background-color: #7ae9de00;
+    }
+
+    /* .............................................................................. */
+    .footer_section {
+        display: grid;
+        background-color: rgba(0, 255, 255, 0.3);
+        width: 100vw;
+        height: 140vw;
+    }
+
+    .contact_wrapper {
+        display: grid;
+        background-color: rgba(225, 255, 0, 0);
+        width: 100vw;
+        height: 115vw;
+        perspective: 6vw;
+        overflow: hidden;
+    }
+
+    .contact_logo_container {
+        display: grid;
+        background-color: rgba(0, 255, 255, 0);
+        width: 100vw;
+        height: 13vw;
+        perspective: 6vw;
+    }
+
+    .contact_mailbox {
+        width: 15vw;
+        justify-self: center;
+        transform-style: preserve-3d;
+
+    }
+
+    .contact_me_wrapper {
+        display: grid;
+        width: 25vw;
+        height: 7vw;
+        justify-self: center;
+        place-items: center;
+        overflow: hidden;
+        background-color: #e9947a00;
+    }
+
+    .contact_me {
+        font-size: 6.5vw;
+        justify-self: center;
+    }
+
+    .footer_birds {
+        position: absolute;
+        width: 20vw;
+        justify-self: center;
+        margin-top: 45vw;
+        margin-left: 70vw;
+    }
+
+    .contact_description {
+        width: 70vw;
+        height: 26vw;
+        margin-top: 7vw;
+        font-size: 5.6vw;
+        text-align: center;
+        justify-self: center;
+        border-radius: 1vw;
+        /* outline: 0.4vw dashed #83C5BE;
+        outline-offset: 1.4vw; */
+        background-color: #e9947a00;
+    }
+
+    .contact_form_wrapper {
+        width: 80vw;
+        transform: translateY(-3vw);
+        justify-self: center;
+        background-color: rgba(0, 255, 255, 0.3);
+    }
+
+    .massage_wrapper {
+        display: grid;
+        gap: 1vw;
+        height: 36vw;
+        overflow: hidden;
+        background-color: hsla(14, 72%, 70%, 0.2);
+        transform: translateY(2.8vw);
+    }
+
+    .send_massage {
+        font-size: 4.56vw;
+        justify-self: center;
+        color: #006d77a0;
+        transform: translateY(0vw);
+    }
+
+    .massage_text {
+        all: unset;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        box-sizing: border-box;
+        width: 80vw;
+        height: 28vw;
+        font-size:4.5vw;
+        font-family: 'Entropia', sans-serif;
+        color: #006d77a0;
+        text-align: left;
+        padding-top: 0vw;
+        border-radius: 2vw;
+        border: #006d7734 solid 0.1vw;
+        padding: 1vw;
+        /* outline: 0.2vw dashed #83C5BE; */
+        /* outline-offset: 0vw; */
+        background-color: #83c5bf5a;
+        resize: none;
+        overflow-y: auto;
+        perspective: 6vw;
+    }
+
+    .subscribe_wrapper {
+        display: grid;
+        height: 20vw;
+        overflow: hidden;
+        background-color: hsla(14, 72%, 70%, 0.5);
+        transform: translateY(2.8vw);
+    }
+
+    .subscribe {
+        font-size: 4.56vw;
+        justify-self: center;
+        color: #006d77a0;
+    }
+
+    .correct_email{
+    display: none;
+    font-size: 4.56vw;
+    justify-self: center;
+    color: #e97a7a;
+    filter: blur(0.3vw);
+    transform: translateY(-5vw);
+    transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1),filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.success_email{
+    display: none;
+    font-size: 4.56vw;
+    justify-self: center;
+    color: #006d77a0;
+    filter: blur(0.3vw);
+    transform: translateY(-5vw);
+    transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1),filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+    .contact_input {
+        display: grid;
+        place-content: center;
+        width: auto;
+        height: 10vw;
+        border-radius: 8vw;
+        border: #006d7734 solid 0.2vw;
+        background-color: #83c5bf5a;
+        justify-self: center;
+        overflow: hidden;
+        z-index: 20;
+    }
+
+    .contact_input input {
+        width: 43.9vw;
+        height: 10vw;
+        font-family: 'Entropia', sans-serif;
+        color: #006d77a0;
+        padding-left: 2vw;
+        font-size: 6vw;
+        border: none;
+        background: none;
+        justify-self: center;
+        outline: none;
+        z-index: 21;
+    }
+
+    input::placeholder {
+        color: #006d7727;
+    }
+
+    .button_wrapper {
+        display: grid;
+        width: 30vw;
+        height: 14vw;
+        justify-self: center;
+        place-items: center;
+        border-radius: 8vw;
+        overflow: hidden;
+        transform: scale(0.7) translateY(2vw);
+        background-color: hsla(14, 72%, 70%, 0.5)
+    }
+
+    .button {
+        display: grid;
+        width: 30vw;
+        height: 14vw;
+        font-size: 8.5vw;
+        border-radius: 2vw;
+        place-items: center;
+        color: #E2F0F2;
+        background-color: #83c5c0;
+        justify-self: center;
+        cursor: pointer;
+        filter: blur(0vw);
+        overflow: hidden;
+        transition: transform 1s cubic-bezier(.99, -0.01, 0, 1.08), filter 1.4s cubic-bezier(.99, -0.01, 0, 1.08);
+    }
+
+    .subscribe_text_button {
+        position: absolute;
+        align-self: center;
+        transform: translate(0vw);
+        transition: filter 0.1s cubic-bezier(.72, -0.02, 0, .99),
+            transform 0.3s cubic-bezier(.72, -0.02, 0, .99);
+    }
+
+    .subscribed_text_button {
+        position: absolute;
+        filter: blur(0.3vw);
+        transform: translateY(-10vw);
+        transition: filter 0.1s cubic-bezier(.72, -0.02, 0, .99),
+            transform 0.3s cubic-bezier(.72, -0.02, 0, .99);
+    }
+
+    .button:hover {
+        background-color: #73aca7;
+        transition: all 0.5s ease-in-out;
+    }
+
+
+    .footer_branch {
+        width: 20vw;
+        justify-self: center;
+        margin-top: -5vw;
+        margin-left: 2vw;
+    }
+
+}

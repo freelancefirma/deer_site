@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Responsive Equalizer Full Width</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <style>
+    body {
+      background: #dedcdc;
+      color: #000;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .player {
+      display: flex;
+      /* flex-direction: column; */
+      align-items: center;
+      background-color: transparent;
+      width: 90vw; /* сделаем адаптивно */
+      max-width: 300px;
+    }
+
+    .play-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(36, 165, 188, 0);
+      border: none;
+      font-size: 40px;
+      color: #1c82aa99;
+      cursor: pointer;
+   
+      margin-top: 9px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+    }
+
+    .equalizer {
+      display: flex;
+      align-items: end;
+      height: 40px;
+      width: 100%; /* на всю ширину родителя */
+      gap: 2px;
+      background: #aaf3e400;
+    }
+
+    .bar {
+      background: #1c82aa99;
+      height: 1px;
+      width: 400px;
+      transition: height 0.1s ease;
+      border-radius: 5px;
+      
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="player">
+  <button class="play-button" id="playBtn">
+    <i class="fa-solid fa-play"></i>
+  </button>
+  <div class="equalizer" id="equalizer"></div>
+
+  <audio id="audio" crossorigin="anonymous">
+    <source src="1.mp3" type="audio/mpeg" />
+  </audio>
+</div>
+
+<script>
+  const playBtn = document.getElementById('playBtn');
+  const icon = playBtn.querySelector('i');
+  const audio = document.getElementById('audio');
+  const eq = document.getElementById('equalizer');
+
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const src = ctx.createMediaElementSource(audio);
+  const analyser = ctx.createAnalyser();
+
+  analyser.fftSize = 64; // 64 полоски
+  const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+  src.connect(analyser);
+  analyser.connect(ctx.destination);
+
+  const bars = [];
+  const gap = 2;
+
+  function createBars() {
+    eq.innerHTML = ''; // очистить контейнер
+
+    const containerWidth = eq.clientWidth;
+    const barsCount = analyser.frequencyBinCount;
+    const barWidth = (containerWidth - (barsCount - 1) * gap) / barsCount;
+
+    for (let i = 0; i < barsCount; i++) {
+      const bar = document.createElement('div');
+      bar.classList.add('bar');
+      bar.style.width = `${barWidth}px`;
+      eq.appendChild(bar);
+      bars.push(bar);
+    }
+  }
+
+  function animateEQ() {
+    requestAnimationFrame(animateEQ);
+    analyser.getByteFrequencyData(dataArray);
+    const maxHeight = 30;
+    bars.forEach((bar, i) => {
+      const height = (dataArray[i] / 255) * maxHeight;
+      bar.style.height = `${height}px`;
+    });
+  }
+
+  let started = false;
+
+  playBtn.addEventListener('click', () => {
+    if (!started) {
+      ctx.resume();
+      createBars();
+      animateEQ();
+      started = true;
+    }
+
+    if (audio.paused) {
+      audio.play();
+      icon.classList.remove('fa-play');
+      icon.classList.add('fa-pause');
+    } else {
+      audio.pause();
+      icon.classList.remove('fa-pause');
+      icon.classList.add('fa-play');
+    }
+  });
+
+  // При изменении размера окна пересоздаём полоски
+  window.addEventListener('resize', () => {
+    if (started) {
+      bars.length = 0; // очистить массив
+      createBars();
+    }
+  });
+</script>
+
+</body>
+</html>
