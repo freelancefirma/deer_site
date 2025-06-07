@@ -347,7 +347,7 @@
 
     .contact_description {
         width: 80vw;
-        height: 26vw;
+        height: auto;
         margin-top: 12vw;
         font-size: 5.6vw;
         text-align: center;
@@ -376,7 +376,7 @@
 
     .send_massage {
         font-size: 4.56vw;
-        justify-self: left;
+        justify-self: center;
         color: #006d77a0;
         transform: translateY(0vw);
     }
@@ -387,7 +387,7 @@
         overflow-wrap: break-word;
         word-break: break-word;
         box-sizing: border-box;
-        width: 80vw;
+        width: 43.9vw;
         height: 28vw;
         font-size:6vw;
         font-family: 'Entropia', sans-serif;
@@ -415,14 +415,14 @@
 
     .subscribe {
         font-size: 4.56vw;
-        justify-self: left;
+        justify-self: center;
         color: #006d77a0;
     }
 
     .correct_email{
     display: none;
     font-size: 4.56vw;
-    justify-self: left;
+    justify-self: center;
     color: #e97a7a;
     filter: blur(0.3vw);
     transform: translateY(-5vw);
@@ -444,7 +444,7 @@
         place-content: center;
         width: auto;
         height: 10vw;
-        border-radius: 2vw;
+        border-radius: 6vw;
         border: #006d7734 solid 0.2vw;
         background-color: #83c5bf5a;
         justify-self: center;
@@ -453,7 +453,7 @@
     }
 
     .contact_input input {
-        width: 80vw;
+        width: 43.9vw;
         height: 10vw;
         font-family: 'Entropia', sans-serif;
         color: #006d77a0;

@@ -250,9 +250,9 @@ mm.add(
           scrollTrigger: {
             trigger: ".about_section",
             start: isDesktop ? "top -40%" : "top 10%",
-            end: "bottom bottom",
+            // end: "bottom bottom",
             scrub: isDesktop ? 5 : false,
-            toggleActions: isDesktop ? undefined : "play none play reverse",
+            toggleActions: isDesktop ? undefined : "play reverse play reverse",
           },
         });
 
@@ -866,9 +866,9 @@ mm.add(
     jQuery(document).ready(function ($) {
       const input_email = $(".input_email");
       const email_button = $(".button");
-      const baseVW = isDesktop ? 15 : 80;
+      const baseVW = isDesktop ? 15 : 43.9;
       const perCharVW = 0.7;
-      const maxVW = isDesktop ? 23 : 80;
+      const maxVW = isDesktop ? 23 : 43.9;
       const thresholdChars = 16;
 
       input_email.on("input", function () {
