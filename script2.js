@@ -224,12 +224,9 @@ mm.add(
     //Text fly on scroll...................................................................................
     const text = `Hi, I’m John — a designer, dreamer, and storyteller from the heart of the woods. Rooted in nature and inspired by quiet moments, I create websites that feel like home — warm, authentic, and thoughtfully crafted. Whether it’s a cozy online shop, a rustic portfolio, or a brand that wants to speak softly but clearly — I’m here to help bring it to life.`;
     const container = document.getElementById("flyText");
-
-    // Для хранения анимаций и ScrollTrigger
     let animations = [];
 
     function initAnimation(isDesktop) {
-      // Очистка контейнера и анимаций
       animations.forEach(({ animation, trigger }) => {
         animation.kill();
         trigger.kill();
@@ -256,23 +253,17 @@ mm.add(
             end: "bottom bottom",
             scrub: isDesktop ? 5 : false,
             toggleActions: isDesktop ? undefined : "play none play reverse",
-            markers: true,
           },
         });
 
         animations.push({ animation: anim, trigger: anim.scrollTrigger });
       });
     }
-
-    // Проверка мобильного/десктопного
-
     initAnimation(isDesktop);
 
-    // Если нужно слушать ресайз и обновлять
     window.addEventListener("resize", () => {
       const newIsDesktop = window.innerWidth > 768;
       if (newIsDesktop !== isDesktop) {
-        // обновляем анимацию с новым условием
         initAnimation(newIsDesktop);
       }
     });
