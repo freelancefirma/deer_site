@@ -1,7 +1,3 @@
-
-
-
-
 console.log("DOM ready?", document.readyState);
 console.log("Hero element:", document.querySelector(".hero_section"));
 
@@ -280,7 +276,6 @@ mm.add(
           start: "top top",
           end: "bottom bottom",
           scrub: 5,
-
         },
       });
     }
@@ -771,7 +766,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 80%" : "top 90%",
+        start: isDesktop ? "top 80%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -785,7 +780,7 @@ mm.add(
       ease: "superEase2",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 70%" : "top 90%",
+        start: isDesktop ? "top 70%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -799,7 +794,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 60%" : "top 90%",
+        start: isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -814,7 +809,7 @@ mm.add(
       ease: "superEase2",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 70%" : "top 90%",
+        start: isDesktop ? "top 70%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -828,7 +823,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 60%" : "top 90%",
+        start: isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -843,12 +838,12 @@ mm.add(
       ease: "superEase2",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 60%" : "top 90%",
+        start: isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
 
-       gsap.from(".button", {
+    gsap.from(".button", {
       y: -100,
       opacity: 0,
       filter: "blur(3px)",
@@ -857,7 +852,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 60%" : "top 90%",
+        start: isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -883,10 +878,9 @@ mm.add(
         if (newVW > maxVW) newVW = maxVW;
 
         input_email.css("width", `${newVW}vw`);
-        $(".massage_text").css("width", `${newVW}vw`);
       });
 
-           input_message.on("input", function () {
+      input_message.on("input", function () {
         const message = input_message.val();
         const charCount = message.length;
         let newVW = baseVW;
@@ -895,8 +889,6 @@ mm.add(
           newVW += (charCount - thresholdChars) * perCharVW;
         }
         if (newVW > maxVW) newVW = maxVW;
-
-        input_message.css("width", `${newVW}vw`);
         $(".massage_text").css("width", `${newVW}vw`);
       });
 
