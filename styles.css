@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Entropia';
-    src: url('./entropia-light.woff2') format('woff2'),
+    src:
         url('./entropia-light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
@@ -24,26 +24,6 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
 }
-
-
-
-.intro {
-    display: none;
-    position: absolute;
-    opacity: 1;
-    width: 100vw;
-    height: 100vh;
-    place-items: center;
-    background-color: #00ffff00;
-    transition: opacity 1s ease;
-    overflow: hidden;
-}
-
-.intro_logo {
-    width: 90vw;
-    height: 90vh;
-}
-
 
 /* .............................................................................. */
 .decor_section {
@@ -512,7 +492,7 @@ body {
 
 .massage_text::-webkit-scrollbar {
     display: none;
-    
+
 }
 
 

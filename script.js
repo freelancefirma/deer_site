@@ -2,9 +2,87 @@
 
 
 
-console.log("DOM ready?", document.readyState);
-console.log("Hero element:", document.querySelector(".hero_section"));
 
+
+
+
+
+//Eq
+const playBtn = document.getElementById('playBtn');
+  const icon = playBtn.querySelector('i');
+  const audio = document.getElementById('audio');
+  const eq = document.getElementById('equalizer');
+
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const src = ctx.createMediaElementSource(audio);
+  const analyser = ctx.createAnalyser();
+
+  analyser.fftSize = 64; // 64 полоски
+  const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+  src.connect(analyser);
+  analyser.connect(ctx.destination);
+
+  const bars = [];
+  const gap = 2;
+
+  function createBars() {
+    eq.innerHTML = ''; // очистить контейнер
+
+    const containerWidth = eq.clientWidth;
+    const barsCount = analyser.frequencyBinCount;
+    const barWidth = (containerWidth - (barsCount - 1) * gap) / barsCount;
+
+    for (let i = 0; i < barsCount; i++) {
+      const bar = document.createElement('div');
+      bar.classList.add('bar');
+      bar.style.width = `${barWidth}px`;
+      eq.appendChild(bar);
+      bars.push(bar);
+    }
+  }
+
+  function animateEQ() {
+    requestAnimationFrame(animateEQ);
+    analyser.getByteFrequencyData(dataArray);
+    const maxHeight = 30;
+    bars.forEach((bar, i) => {
+      const height = (dataArray[i] / 255) * maxHeight;
+      bar.style.height = `${height}px`;
+    });
+  }
+
+  let started = false;
+
+  playBtn.addEventListener('click', () => {
+    if (!started) {
+      ctx.resume();
+      createBars();
+      animateEQ();
+      started = true;
+    }
+
+    if (audio.paused) {
+      audio.play();
+      icon.classList.remove('fa-play');
+      icon.classList.add('fa-pause');
+    } else {
+      audio.pause();
+      icon.classList.remove('fa-pause');
+      icon.classList.add('fa-play');
+    }
+  });
+
+  // При изменении размера окна пересоздаём полоски
+  window.addEventListener('resize', () => {
+    if (started) {
+      bars.length = 0; // очистить массив
+      createBars();
+    }
+  });
+
+
+//CustomEase..............................................................................................
 gsap.registerPlugin(ScrollTrigger);
 CustomEase.create("myCubic", "M0,0 C0.1,0 0,0.99 1,1");
 CustomEase.create("superEase", "M0,0 C1,0 0,1.3 1,1");
@@ -185,7 +263,7 @@ mm.add(
       },
     });
 
-      gsap.from(".about_deer", {
+          gsap.from(".about_deer", {
         y:isDesktop ? 50 : 30,
         opacity: 0.16,
         scale: 0.8,
@@ -200,18 +278,13 @@ mm.add(
           markers: false,
         },
       });
-   
-    
 
     //Text fly on scroll...................................................................................
     const text = `Hi, I’m John — a designer, dreamer, and storyteller from the heart of the woods. Rooted in nature and inspired by quiet moments, I create websites that feel like home — warm, authentic, and thoughtfully crafted. Whether it’s a cozy online shop, a rustic portfolio, or a brand that wants to speak softly but clearly — I’m here to help bring it to life.`;
     const container = document.getElementById("flyText");
-
-    // Для хранения анимаций и ScrollTrigger
     let animations = [];
 
     function initAnimation(isDesktop) {
-      // Очистка контейнера и анимаций
       animations.forEach(({ animation, trigger }) => {
         animation.kill();
         trigger.kill();
@@ -230,31 +303,25 @@ mm.add(
           y: gsap.utils.random(-300, 300),
           rotate: gsap.utils.random(-180, 180),
           opacity: 0,
-          duration: 2,
+          duration: 0.3,
           ease: isDesktop ? "none" : "superEase",
           scrollTrigger: {
             trigger: ".about_section",
-            start: isDesktop ? "top -40%" : "top 10%",
-            // end:isDesktop ? "bottom bottom" : un,
-            scrub: isDesktop ? 5 : false,
-            toggleActions: isDesktop ? undefined : "play reverse play reverse",
-            markers: true,
+            start: isDesktop ? "top -40%" : "top 30%",
+            // end: "bottom bottom",
+            scrub: isDesktop ? 5 : 3,
+            // toggleActions: isDesktop ? undefined : "play reverse play reverse",
           },
         });
 
         animations.push({ animation: anim, trigger: anim.scrollTrigger });
       });
     }
-
-    // Проверка мобильного/десктопного
-
     initAnimation(isDesktop);
 
-    // Если нужно слушать ресайз и обновлять
     window.addEventListener("resize", () => {
       const newIsDesktop = window.innerWidth > 768;
       if (newIsDesktop !== isDesktop) {
-        // обновляем анимацию с новым условием
         initAnimation(newIsDesktop);
       }
     });
@@ -271,7 +338,6 @@ mm.add(
           start: "top top",
           end: "bottom bottom",
           scrub: 5,
-          
         },
       });
     }
@@ -762,7 +828,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 80%" : "top 90%",
+        start: isDesktop ? "top 80%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -776,7 +842,7 @@ mm.add(
       ease: "superEase2",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 70%" : "top 90%",
+        start: isDesktop ? "top 70%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -790,7 +856,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 60%" : "top 90%",
+        start: isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -805,7 +871,7 @@ mm.add(
       ease: "superEase2",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 70%" : "top 90%",
+        start: isDesktop ? "top 70%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -819,7 +885,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 60%" : "top 90%",
+        start: isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -834,12 +900,12 @@ mm.add(
       ease: "superEase2",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 60%" : "top 90%",
+        start: isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
 
-       gsap.from(".button", {
+    gsap.from(".button", {
       y: -100,
       opacity: 0,
       filter: "blur(3px)",
@@ -848,7 +914,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start:isDesktop ? "top 60%" : "top 90%",
+        start: isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -856,10 +922,11 @@ mm.add(
     //Input effect...............................................................................................
     jQuery(document).ready(function ($) {
       const input_email = $(".input_email");
+      const input_message = $(".massage_text");
       const email_button = $(".button");
-      const baseVW = isDesktop ? 15 : 34;
+      const baseVW = isDesktop ? 15 : 43.9;
       const perCharVW = 0.7;
-      const maxVW = isDesktop ? 23 : 56;
+      const maxVW = isDesktop ? 23 : 60;
       const thresholdChars = 16;
 
       input_email.on("input", function () {
@@ -873,6 +940,17 @@ mm.add(
         if (newVW > maxVW) newVW = maxVW;
 
         input_email.css("width", `${newVW}vw`);
+      });
+
+      input_message.on("input", function () {
+        const message = input_message.val();
+        const charCount = message.length;
+        let newVW = baseVW;
+
+        if (charCount > thresholdChars) {
+          newVW += (charCount - thresholdChars) * perCharVW;
+        }
+        if (newVW > maxVW) newVW = maxVW;
         $(".massage_text").css("width", `${newVW}vw`);
       });
 
@@ -910,8 +988,8 @@ mm.add(
 
         // Анимации при валидном email
         subscribe.css({
-          filter: "blur(0vw)",
-          transform: "translateY(10vw)",
+          filter: "blur(2vw)",
+          transform: "translateY(15vw)",
         });
 
         subscribed.css({
@@ -977,4 +1055,3 @@ mm.add(
 
 // // после загрузки страницы или когда текст вставляется
 // textarea.scrollTop = parseFloat(getComputedStyle(textarea).fontSize) * 2;
-

@@ -1,12 +1,14 @@
 @font-face {
     font-family: 'Entropia';
-    src: url('./entropia-light.woff2') format('woff2'),
+    src:
         url('./entropia-light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @media (max-width: 768px) {
-
+    body{
+        display: grid;
+    }
     /* .............................................................................. */
     .decor_section {
         position: absolute;
