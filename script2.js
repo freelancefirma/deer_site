@@ -181,9 +181,8 @@ mm.add(
       },
     });
 
-    if (isDesktop) {
-      gsap.from(".about_deer", {
-        y: 50,
+          gsap.from(".about_deer", {
+        y:isDesktop ? 50 : 30,
         opacity: 0.16,
         scale: 0.8,
         filter: "blur(0.3vw)",
@@ -192,30 +191,11 @@ mm.add(
         scrollTrigger: {
           trigger: ".about_section",
           start: isDesktop ? "top 10%" : "top 40%",
-          end: isDesktop ? "bottom 70%" : "bottom 10%",
+          end: isDesktop ? "bottom 70%" : "bottom 70%",
           toggleActions: "play reverse play reverse",
+          markers: false,
         },
       });
-    } else {
-      gsap.fromTo(
-        ".about_deer",
-        { y: "10vw", opacity: 0.16, scale: 0.8, filter: "blur(0.3vw)" },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1.3,
-          filter: "blur(0vw)",
-          ease: "myCubic",
-          duration: 1.9,
-          scrollTrigger: {
-            trigger: ".about_section",
-            start: "top 40%",
-            end: "bottom 30%",
-            toggleActions: "play reverse play reverse", // при выходе назад анимация отыграется в обратную сторону
-          },
-        }
-      );
-    }
 
     //Text fly on scroll...................................................................................
     const text = `Hi, I’m John — a designer, dreamer, and storyteller from the heart of the woods. Rooted in nature and inspired by quiet moments, I create websites that feel like home — warm, authentic, and thoughtfully crafted. Whether it’s a cozy online shop, a rustic portfolio, or a brand that wants to speak softly but clearly — I’m here to help bring it to life.`;
