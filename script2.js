@@ -245,14 +245,14 @@ mm.add(
           y: gsap.utils.random(-300, 300),
           rotate: gsap.utils.random(-180, 180),
           opacity: 0,
-          duration: 2,
+          duration: 0.3,
           ease: isDesktop ? "none" : "superEase",
           scrollTrigger: {
             trigger: ".about_section",
-            start: isDesktop ? "top -40%" : "top 10%",
+            start: isDesktop ? "top -40%" : "top 30%",
             // end: "bottom bottom",
-            scrub: isDesktop ? 5 : false,
-            toggleActions: isDesktop ? undefined : "play reverse play reverse",
+            scrub: isDesktop ? 5 : 3,
+            // toggleActions: isDesktop ? undefined : "play reverse play reverse",
           },
         });
 
@@ -865,10 +865,11 @@ mm.add(
     //Input effect...............................................................................................
     jQuery(document).ready(function ($) {
       const input_email = $(".input_email");
+      const input_message = $(".massage_text");
       const email_button = $(".button");
       const baseVW = isDesktop ? 15 : 43.9;
       const perCharVW = 0.7;
-      const maxVW = isDesktop ? 23 : 43.9;
+      const maxVW = isDesktop ? 23 : 60;
       const thresholdChars = 16;
 
       input_email.on("input", function () {
@@ -882,6 +883,20 @@ mm.add(
         if (newVW > maxVW) newVW = maxVW;
 
         input_email.css("width", `${newVW}vw`);
+        $(".massage_text").css("width", `${newVW}vw`);
+      });
+
+           input_message.on("input", function () {
+        const message = input_message.val();
+        const charCount = message.length;
+        let newVW = baseVW;
+
+        if (charCount > thresholdChars) {
+          newVW += (charCount - thresholdChars) * perCharVW;
+        }
+        if (newVW > maxVW) newVW = maxVW;
+
+        input_message.css("width", `${newVW}vw`);
         $(".massage_text").css("width", `${newVW}vw`);
       });
 

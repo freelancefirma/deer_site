@@ -382,7 +382,7 @@
     }
 
     .massage_text {
-        all: unset;
+        /* all: unset; */
         white-space: pre-wrap;
         overflow-wrap: break-word;
         word-break: break-word;
@@ -401,9 +401,16 @@
         /* outline-offset: 0vw; */
         background-color: #83c5bf5a;
         resize: none;
+        max-height: 60vh;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         perspective: 6vw;
     }
+
+    .massage_text::-webkit-scrollbar {
+    display: grid;
+
+}
 
     .subscribe_wrapper {
         display: grid;
